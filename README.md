@@ -1,6 +1,7 @@
 # popover
 A jQuery plug-in for Popover
 
+![demo preview](https://github.com/shulkme/popover/blob/master/preview.png)
 > Example
 
 ```html
