@@ -10,7 +10,7 @@ A jQuery plug-in for Popover
 ```javascript
 $('#btn').popover({
     title : 'title',//title
-    content : 'content',//content
+    content : 'content',//content,string,function,object
     autoPlace : false,//Set a reasonable place,default true
     trigger : 'hover',//Trigger mode,default 'hover','click','focus'
     placement : 'top',//Preferred placement, if autoPlace is false,Fixed here
