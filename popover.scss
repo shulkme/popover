@@ -1,0 +1,246 @@
+@mixin shadow($x:0,$y:2,$blur:8,$c:rgba(0,0,0,0.15)){
+  -webkit-box-shadow: #{$x}px #{$y}px #{$blur}px 0 $c;
+  -moz-box-shadow: #{$x}px #{$y}px #{$blur}px 0 $c;
+  box-shadow: #{$x}px #{$y}px #{$blur}px 0 $c;
+}
+@mixin arrow($d,$w,$h,$c){
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+  //border-width: 10px;
+  @if($d == 't'){
+    border-width: 0 #{$w}px #{2 * $h}px #{$w}px;
+    border-top: none;
+    border-bottom-color: $c;
+  }@else if($d == 'r'){
+    border-width: #{2 * $h}px 0 #{2 * $h}px #{$w}px;
+    border-right: none;
+    border-left-color: $c;
+  }@else if($d == 'b'){
+    border-width: #{2 * $h}px #{$w}px 0 #{$w}px;
+    border-bottom: none;
+    border-top-color: $c;
+  }@else if($d == 'l'){
+    border-width: #{2 * $h}px #{$w}px #{2 * $h}px 0;
+    border-left: none;
+    border-right-color: $c;
+  }@else if($d == 'tl'){
+    border-width: #{$h}px #{$w}px;
+    border-left-color: $c;
+    border-top-color: $c;
+  }@else if($d == 'tr'){
+    border-width: #{$h}px #{$w}px;
+    border-right-color: $c;
+    border-top-color: $c;
+  }@else if($d == 'bl'){
+    border-width: #{$h}px #{$w}px;
+    border-left-color: $c;
+    border-bottom-color: $c;
+  }@else if($d == 'br'){
+    border-width: #{$h}px #{$w}px;
+    border-right-color: $c;
+    border-bottom-color: $c;
+  }
+};
+.popover{
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  position: relative;
+  .popover-container{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    position: relative;
+    padding: 8px;
+    .popover-inner{
+      display: block;
+      background-color: #fff;
+      border-radius: 4px;
+      @include shadow(0,2,8,rgba(0,0,0,0.15));
+      .popover-title{
+        font-size: 14px;
+        min-width: 177px;
+        min-height: 32px;
+        font-weight: 500;
+        padding: 5px 16px 4px;
+        border-bottom: 1px solid $color_divider;
+        color: #000;
+      }
+      .popover-content{
+        font-size: 14px;
+        padding: 12px 16px;
+        color: #666;
+      }
+    }
+    .popover-arrow{
+      display: block;
+      position: absolute;
+      @include rotate(45);
+    }
+  }
+  //top
+  &.popover-top{
+    .popover-container{
+      .popover-arrow{
+        top: auto;
+        right: auto;
+        bottom: 4px;
+        left: 50%;
+        margin: 0 0 0 -4px;
+        @include arrow(br,4,4,#fff);
+        @include shadow(3,3,7,rgba(0,0,0,0.07));
+      }
+    }
+  }
+  &.popover-topLeft{
+    .popover-container{
+      .popover-arrow{
+        top: auto;
+        right: auto;
+        bottom: 4px;
+        left: 24px;
+        margin: 0;
+        @include arrow(br,4,4,#fff);
+        @include shadow(3,3,7,rgba(0,0,0,0.07));
+      }
+    }
+  }
+  &.popover-topRight{
+    .popover-container{
+      .popover-arrow{
+        top: auto;
+        right: 24px;
+        bottom: 4px;
+        left: auto;
+        margin: 0;
+        @include arrow(br,4,4,#fff);
+        @include shadow(3,3,7,rgba(0,0,0,0.07));
+      }
+    }
+  }
+
+  //right
+  &.popover-rightTop{
+    .popover-container{
+      .popover-arrow{
+        top: 20px;
+        right: auto;
+        bottom: auto;
+        left: 4px;
+        margin: 0;
+        @include arrow(bl,4,4,#fff);
+        @include shadow(-3,3,7,rgba(0,0,0,0.07));
+      }
+    }
+  }
+  &.popover-right{
+    .popover-container{
+      .popover-arrow{
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        left: 4px;
+        margin: -4px 0 0 0;
+        @include arrow(bl,4,4,#fff);
+        @include shadow(-3,3,7,rgba(0,0,0,0.07));
+      }
+    }
+  }
+  &.popover-rightBottom{
+    .popover-container{
+      .popover-arrow{
+        top: auto;
+        right: auto;
+        bottom: 20px;
+        left: 4px;
+        margin: 0;
+        @include arrow(bl,4,4,#fff);
+        @include shadow(-3,3,7,rgba(0,0,0,0.07));
+      }
+    }
+  }
+
+  //bottom
+  &.popover-bottomLeft{
+    .popover-container{
+      .popover-arrow{
+        top: 4px;
+        right: auto;
+        bottom: auto;
+        left: 24px;
+        margin: 0;
+        @include arrow(tl,4,4,#fff);
+        @include shadow(-3,-3,7,rgba(0,0,0,0.07));
+      }
+    }
+  }
+  &.popover-bottom{
+    .popover-container{
+      .popover-arrow{
+        top: 4px;
+        right: auto;
+        bottom: auto;
+        left: 50%;
+        margin: 0 0 0 -4px;
+        @include arrow(tl,4,4,#fff);
+        @include shadow(-3,-3,7,rgba(0,0,0,0.07));
+      }
+    }
+  }
+  &.popover-bottomRight{
+    .popover-container{
+      .popover-arrow{
+        top: 4px;
+        right: 24px;
+        bottom: auto;
+        left: auto;
+        margin: 0;
+        @include arrow(tl,4,4,#fff);
+        @include shadow(-3,-3,7,rgba(0,0,0,0.07));
+      }
+    }
+  }
+
+  //left
+  &.popover-leftTop{
+    .popover-container{
+      .popover-arrow{
+        top: 20px;
+        right: 4px;
+        bottom: auto;
+        left: auto;
+        margin: 0;
+        @include arrow(tr,4,4,#fff);
+        @include shadow(3,-3,7,rgba(0,0,0,0.07));
+      }
+    }
+  }
+  &.popover-left{
+    .popover-container{
+      .popover-arrow{
+        top: 50%;
+        right: 4px;
+        bottom: auto;
+        left: auto;
+        margin: -4px 0 0 0;
+        @include arrow(tr,4,4,#fff);
+        @include shadow(3,-3,7,rgba(0,0,0,0.07));
+      }
+    }
+  }
+  &.popover-leftBottom{
+    .popover-container{
+      .popover-arrow{
+        top: auto;
+        right: 4px;
+        bottom: 20px;
+        left: auto;
+        margin: 0;
+        @include arrow(tr,4,4,#fff);
+        @include shadow(3,-3,7,rgba(0,0,0,0.07));
+      }
+    }
+  }
+}
