@@ -4,8 +4,8 @@
         //public options
         trigger : 'hover',//触发方式，'hover','click','focus'
         autoPlace : true,//自动放置，防止内容遮挡
-        delay : 10, //显示隐藏样式
-        placement : 'top', //放置位置，'top',    'topLeft',    'topRight',
+        delay : 10, //显示隐藏延时
+        placement : 'top', //放置偏好，'top',    'topLeft',    'topRight',
                                    // 'right',  'rightTop',   'rightBottom',
                                    // 'bottom', 'bottomLeft', 'bottomRight',
                                    // 'left',   'leftTop',    'leftBottom'
