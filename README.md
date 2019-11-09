@@ -1,9 +1,10 @@
 # popover
-A jQuery plug-in for Popover
+> A jQuery plug-in for Popover
 
+#### preview
 ![demo preview](https://github.com/shulkme/popover/blob/master/preview.png)
-> Example
 
+#### Example
 ```html
 <button id='btn'>click me</button>
 ```
