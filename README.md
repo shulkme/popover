@@ -1,5 +1,5 @@
 # popover
-> A jQuery plug-in for Popover
+> A jQuery plugin for Popover
 
 #### preview
 ![demo preview](https://github.com/shulkme/popover/blob/master/preview.png)
