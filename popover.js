@@ -1,3 +1,10 @@
+/**
+ * popover
+ * shulkme
+ * v0.0.1
+ * 2019-11-04
+ * https://github.com/shulkme/popover
+ */
 (function ($) {
     'use strict';
     var defaults = {
